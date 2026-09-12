@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -110,7 +111,7 @@ label span {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 14px;
   margin-bottom: 20px;
 }
@@ -230,7 +231,7 @@ input {
 
 .record-card {
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px 1fr auto;
   gap: 16px;
   align-items: center;
   border: 1px solid var(--border);
@@ -270,4 +271,124 @@ input {
   .field-grid {
     grid-template-columns: 1fr;
   }
+
+  .record-card {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .record-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+/* 筛选区 */
+.filter-field {
+  margin-bottom: 16px;
+}
+
+.filter-label {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.chips.muted button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.clear-filter {
+  width: 100%;
+}
+
+.clear-filter:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* 录入表单 */
+select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 12px;
+  color: #172033;
+  background: #ffffff;
+}
+
+.required-mark {
+  color: #e11d48;
+  font-style: normal;
+  margin-left: 2px;
+}
+
+input.field-error,
+select.field-error {
+  border-color: #e11d48;
+}
+
+.form-error {
+  color: #e11d48;
+  font-size: 14px;
+  margin: 14px 0 0;
+}
+
+/* 记录卡片 */
+.relic-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff);
+  color: var(--accent);
+  vertical-align: middle;
+}
+
+.record-meta {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.record-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+  align-content: center;
+}
+
+.record-actions button {
+  min-height: 32px;
+  font-size: 13px;
+}
+
+.status-tag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.status-tag-ok {
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff);
+  color: var(--accent);
+}
+
+.status-tag-warn {
+  background: color-mix(in srgb, #e11d48 10%, #ffffff);
+  color: #e11d48;
+}
+
+.empty-state {
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 28px;
+  text-align: center;
+  color: #64748b;
 }
